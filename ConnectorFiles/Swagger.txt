@@ -1,0 +1,61 @@
+swagger: '2.0'
+info: {title: ITAFunctions, description: ItAintBoring Functions, version: '1.0'}
+host: google.com
+basePath: /
+schemes: [https]
+consumes: []
+produces: []
+paths:
+  /ToUpper:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {type: string}
+      summary: String To Uppercase
+      operationId: stringtouppercase
+      parameters:
+      - name: value
+        in: body
+        required: true
+        schema: {type: string, title: value}
+  /SortStringArray:
+    post:
+      responses:
+        default:
+          description: default
+          schema:
+            type: array
+            items: {type: string}
+            description: Sorted Array
+            title: Sorted Array
+      summary: Sort String Array
+      operationId: sortstringarray
+      parameters:
+      - name: value
+        in: body
+        required: true
+        schema:
+          type: array
+          items: {type: string}
+          description: Unsorted Array
+          title: Unsorted Array
+  /JsonEcho:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {type: string, description: result, title: result}
+      summary: Return json string for the parameter
+      operationId: jsonecho
+      parameters:
+      - name: value
+        in: body
+        required: true
+        schema: {type: object, description: Object to decerialize, title: value}
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions: {}
+security: []
+tags: []
