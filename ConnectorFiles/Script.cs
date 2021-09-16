@@ -46,15 +46,9 @@ public class Script : ScriptBase
         var stringArray = stringJArray.ToObject<List<string>>();
         stringArray.Sort();
         var result = JArray.FromObject(stringArray);
-        string stringResult = result.ToString();
-        int i = stringResult.IndexOf("[");
-        stringResult = stringResult.Substring(i);
-        i = stringResult.LastIndexOf("]");
-        stringResult = stringResult.Substring(0, i+1);
 
         response = new HttpResponseMessage(HttpStatusCode.OK);
-        response.Content = CreateJsonContent(stringResult);
-     
+        response.Content = CreateJsonContent( result.ToString());
         return response;
     }
 }
