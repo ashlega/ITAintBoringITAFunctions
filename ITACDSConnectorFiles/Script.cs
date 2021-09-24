@@ -16,7 +16,7 @@ public class Script : ScriptBase
     {
         // Use the context to forward/send an HTTP request
         var userName = await this.Context.Request.Content.ReadAsStringAsync().ConfigureAwait(false);
-        this.Context.Request.RequestUri = new Uri($"https://orgd27b211f.api.crm.dynamics.com/api/data/v9.2/systemusers?$filter=contains(fullname,{userName})");
+        this.Context.Request.RequestUri = new Uri($"https://orgd27b211f.api.crm.dynamics.com/api/data/v9.2/systemusers?$filter=contains(fullname,'{userName}')");
         this.Context.Request.Method = HttpMethod.Get;
         HttpResponseMessage response = await this.Context.SendAsync(this.Context.Request, this.CancellationToken).ConfigureAwait(continueOnCapturedContext: false);
         return response;
