@@ -1,0 +1,34 @@
+swagger: '2.0'
+info: {title: ITA CDS Connector, description: ItCDSConnector, version: '1.0'}
+host: google.com
+basePath: /
+schemes: [https]
+consumes: []
+produces: []
+paths:
+  /UserInfo:
+    post:
+      responses:
+        default:
+          description: default
+          schema: {type: object, description: result, title: result}
+      summary: Return user info as json
+      operationId: userinfo
+      parameters:
+      - name: value
+        in: body
+        required: true
+        schema: {type: string, description: User Id, title: value}
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  oauth2_auth:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: https://login.windows.net/common/oauth2/authorize
+    tokenUrl: https://login.windows.net/common/oauth2/authorize
+    scopes: {}
+security:
+- oauth2_auth: []
+tags: []
